@@ -3,10 +3,10 @@ layout: default
 # Index page
 ---
 
-<h1>{{ "Hello World!" | downcase }}</h1>
+<h1>Hello World!</h1>
 
 
-# h1 Heading 8-)
+# h1 Heading
 ## h2 Heading
 ### h3 Heading
 #### h4 Heading
