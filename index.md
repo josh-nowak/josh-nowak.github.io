@@ -3,9 +3,6 @@ layout: default
 # Index page
 ---
 
-<h1>Hello World!</h1>
-
-
 # h1 Heading
 ## h2 Heading
 ### h3 Heading
