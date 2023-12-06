@@ -16,7 +16,7 @@ timezone: Europe/Berlin
 
 title: Joshua Nowak # the main title
 
-tagline: Psychologist, user researcher, product person, data storyteller, piano nerd  # it will display as the sub-title
+tagline: Psychologist, user researcher, product person, data storyteller, and piano nerd.  # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   Joshua Nowak | psychologist, user researcher, product person, data storyteller, piano nerd
@@ -70,7 +70,7 @@ theme_mode: # [light|dark]
 img_cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar:
+avatar: assets/img/2310115-portrait-square-bw.jpeg
 
 # boolean type, the global switch for TOC in posts.
 toc: true
