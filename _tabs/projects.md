@@ -1,5 +1,5 @@
 ---
 layout: page
-icon: fas mountain-sun
+icon: fas fa-mountain-sun
 order: 1
 ---
