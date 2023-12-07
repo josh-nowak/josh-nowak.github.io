@@ -1,7 +1,7 @@
 ---
-title: How to conduct weighted survey analysis in R
+title: A beginner's guide to weighted survey analysis in R
 date: 2023-12-06 19:00:00 +0100
-categories: [Tutorial]
+categories: [Tutorials]
 render_with_liquid: false
 image: 
     path: /assets/img/weighting.png
@@ -32,44 +32,46 @@ The idea is to **assign each respondent a weight** that influences their impact 
 
 ## Choosing adjustment variables for weighting
 
-How do we determine whether a group in the survey sample is over- or under-represented? We need to define this with regard to specific **adjustment variables** that we can also use later for computing the weights. Choose variables that you expect will be relevant for the analysis. For example: If you're surveying users of a bike-sharing service, an appropriate adjustment variable can be the frequency of using said service. A less important variable might be the payment method that people are using.
+How do we determine whether a group in the survey sample is over- or under-represented? We need to look at a set of **adjustment variables**, which we'll also use later to compute the weights. Choose variables that you expect will be relevant for the analysis. For example: If you're surveying users of a bike-sharing service, an appropriate adjustment variable can be the frequency of using said service. A less important variable might be the payment method that people are using.
 
 For all the adjustment variables, **you'll need to know the frequency distributions in both your sample and in your target population**. Only then can you compare them, examine any devations, and compute the weights accordingly.
 
-I've come across these two ways of obtaining the **population frequencies**:
-* When surveying your own users and your target population is the entire user base, you can often get the frequency distributions from your **customer database**. For example: If you want to use age as an adjustment variable (and know the birth dates of all your users), you can simply pull the frequencies of different age groups from your customer table—or ask a friendly Data Analyst to do so.
-* When your target population is the general population of a country (e.g., citizens of Switzerland), you can use **census data**, which usually includes basic socio-demographics.
+I've come across two main ways of obtaining the **population frequencies**:
+* **When your target population is your customer base**, you can often get the frequency distributions from your database. For example: If you want to use age as an adjustment variable (and know the birth dates of all your users), you can simply pull the frequencies of different age groups from your customer table—or ask a friendly Data Analyst to do so.
+* **When your target population is a country's general population** or a socio-demographic subset of it (e.g., citizens of Switzerland between the age of 18 and 40), you can use publicly available census data, which provides frequency tables on key socio-demographic variables.
 
-Obtaining the **sample frequencies** sounds simple, but can also be a challenge. Here are the two main options:
-* **Using self-reported data**: You can assess the adjustment variables with questions in your survey. For example, you can ask people directly which age group they belong to. Make sure to have a plan in place for those who prefer not to answer a question (e.g., you could set their response to NA and impute the missing values). 
-* **Using objective data**: You might also be able to capture objective data along with the survey responses. For example, when surveying customers, you can use a personalized survey invitation link that allows you to pass along certain customer attributes, or even the customer's ID. When taking this approach, make sure to consider the ethical and legal requirements because you risk de-anonymizing the survey responses and the customer needs to opt in to this type of data processing (at least under GPDR).
+Obtaining the **sample frequencies** sounds simple, but can be a challenge as well. Here are the two main options:
+* **Using self-reported data**: You can assess the adjustment variables with questions in your survey. For example, you can ask people to select their age group. Make sure to have a plan in place for those who prefer not to answer. For example, you could set their response to NA and impute the missing values.
+* **Using objective data**: Depending on your setup, you can also consider capturing objective data along with the survey responses. When surveying customers, for example, you can use a personalized survey invitation link that allows you to pass along certain customer attributes, or even the customer's ID. When taking this approach, make sure to consider the ethical and legal requirements because you risk de-anonymizing the survey responses. At least under GDPR, the customer needs to opt in to this data processing and be aware what kind of data is used.
 
 Once you know the frequency distributions of your adjustment variables in the population and in the sample, you can use them to compute weights for your survey respondents. 
 
 ## Choosing an appropriate weighting algorithm
 
-I'm far from an expert on weighting algorithms and there seem to be many different approaches with different levels of complexity. [This report by Pew Research](https://www.pewresearch.org/methods/2018/01/26/for-weighting-online-opt-in-samples-what-matters-most/) gives a nice overview. Here are some notable quotes:
+I'm far from an expert on weighting algorithms and there are many different approaches with different levels of complexity. [This report by Pew Research](https://www.pewresearch.org/methods/2018/01/26/for-weighting-online-opt-in-samples-what-matters-most/) gives a nice overview. Here are some notable quotes:
 
 > “When it comes to accuracy, **choosing the right variables for weighting is more important** than choosing the right statistical method.”
 > 
 > “The **most** **basic weighting method (raking) performs nearly as well** as more elaborate techniques based on matching.”
 
-There seems to be a pragmatic conclusion here: Going with a basic "raking" algorithm for weighting and spending more time on selecting appropriate adjustment variables. What's a raking algorithm? On a high level, the raking procedure iteratively adjusts the weight for each respondent until the distributions of all the adjustment variables align well enough between the sample and the population.
+There seems to be a pragmatic conclusion here: Going with a basic "raking" algorithm for weighting and spending more time on selecting appropriate adjustment variables. 
+
+Raking is a procedure where the weight for each respondent is iteratively refined until the distributions of all the adjustment variables align well enough between the sample and the population.
 
 ## Computing survey weights in R
 
 My suggested implementation for survey weighting in R makes use of the **[`anesrake`](https://cran.r-project.org/web/packages/anesrake/anesrake.pdf)** package. I kept the following steps deliberately simple. Your project might require additional data preparation or a more sophisticated weighting approach.
 
-### Step 1: Load required packages
+### Step 1: Loading required packages
 
-Let’s start by loading the required packages. These two are all we need for now:
+Let’s start by loading the required packages. These are all we need for now.
 
 ```r
 library(tidyverse)
 library(anesrake)
 ```
 
-### Step 2: Check for missing data
+### Step 2: Checking for missing data
 
 The anesrake algorithm can’t work with missing data in the adjustment variables. You'll need to decide on a way to prevent or deal with missing values (e.g., imputation). Some options are outlined in this [article by freeCodeCamp](https://www.freecodecamp.org/news/how-to-handle-missing-data-in-a-dataset/).
 
@@ -91,7 +93,7 @@ survey_data <- survey_data %>%
                    as.factor))
 ```
 
-### Step 4: Add an ID variable
+### Step 4: Adding an ID variable
 
 Your survey dataset should contain an ID variable that allows you to uniquely identify responses and later match the computed weights to them. Perhaps your dataset already includes an ID variable, otherwise you can simply create one using row numbers as follows.
 
@@ -100,7 +102,7 @@ survey_data <- survey_data %>%
   mutate(id = 1:nrow(survey_data))
 ```
 
-### Step 5: Enter the population frequencies
+### Step 5: Entering the population frequencies
 
 We need to tell anesrake the adjustment variables' frequency distributions in the target population. These have to be provided as a named list of named vectors following the format below.
 
@@ -117,9 +119,9 @@ targets <- list(
 )
 ```
 
-### Step 6: Run the raking algorithm
+### Step 6: Running the raking algorithm
 
-We’re ready to run the actual raking algorithm by calling `anesrake`.
+We’re now ready to run the actual raking algorithm by calling `anesrake`.
 
 ```r
 raking_result <- anesrake(inputter = targets,
@@ -127,18 +129,18 @@ raking_result <- anesrake(inputter = targets,
                           caseid = survey_data$id)
 ```
 
-Once anesrake is done, you can obtain the weights like this.
+Once `anesrake` is done, you can obtain the weights like this.
 
 ```r
 weights <- tibble(id = names(raking_result$weightvec),
                   weight = raking_result$weightvec)
 ```
 
-It’s also worth exploring the anesrake list object a bit further (here: “raking_result”). For example, the list item “varsused” will tell you which of your specified adjustment variables have actually been used for weighting. Your adjustment variables might not have been used if their sample distributions didn’t differ much from the population distribution. By default, anesrake only includes adjustment variables when there is a discrepancy of more than 5%. You can change this default by setting the “pctlim” argument to your desired value.
+It’s also worth having a closer look at the list that `anesrake` returns (here: `raking_result`). For example, the list item `varsused` will clarify which of the specified adjustment variables have actually been used for weighting. By default, `anesrake` only uses adjustment variables when their sample distribution differs by more than 5% from the population distribution. You can set a different threshold using the `pctlim` argument.
 
-### Step 7: Add the weights
+### Step 7: Adding the weights
 
-Let’s add the weights we just calculated to the survey dataframe and join by ID.
+Let’s add the weights we just calculated to the survey data frame—and join by `id`, just to be safe.
 
 ```r
 survey_data <- survey_data %>% 
@@ -146,7 +148,7 @@ survey_data <- survey_data %>%
   left_join(weights, by = "id")
 ```
 
-Note that the ID variable in the “weights” data frame is in character format because it was derived from the `names` attribute of `raking_results$weightvec`. We need to make sure that the ID columns in the survey dataframe and the weight dataframe have the same format in order for the joining operation to work.
+Note that the `id` variable in the `weights` data frame is in character format because it was derived from the `names` attribute of `raking_results$weightvec`. We need to make sure that the `id` columns in the survey data frame and the weight data frame have the same format in order for the joining operation to work.
 
 ## Conducting weighted analyses in R 
 
@@ -162,13 +164,13 @@ The following functions may come in handy.
 
 Note that some of these functions will work without specifying a weight variable, which means you won’t see an error if you forget to include it.
 
-## Conclusion
+## Final thoughts
 
-Survey weighting can lead to more accurate results when working with a biased sample, although it's not as powerful as one might think. I have yet to encounter a project where the weighted analysis leads to completely different results and takeaways than the non-weighted analysis. The differences often seem rather subtle to me, and this was also one of the findings in the [Pew Research report](https://www.pewresearch.org/methods/2018/01/26/for-weighting-online-opt-in-samples-what-matters-most/): 
+Survey weighting can lead to more accurate results when working with a biased sample, although it's not as powerful as one might think. I have yet to encounter a project where the weighted analysis leads to completely different results and takeaways than the non-weighted analysis. The differences often seem rather subtle to me, and this was also one of the findings in the [Pew Research report](https://www.pewresearch.org/methods/2018/01/26/for-weighting-online-opt-in-samples-what-matters-most/) mentioned earlier: 
 
 > “Even the most effective adjustment procedures were **unable to remove most of the bias**.”
 
-However, I don't think there's any disadvantage in working through a weighting approach. In any case, it forces you to consider more ways in which your sample might be biased – and might inspire taking additional measures to address these biases.
+However, I don't think there's any disadvantage in working through a weighted analysis. In any case, it forces you to consider more ways in which your sample might be biased – and might inspire taking additional measures to address these biases.
 
 ---
 

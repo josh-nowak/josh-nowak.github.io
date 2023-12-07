@@ -16,10 +16,10 @@ timezone: Europe/Berlin
 
 title: Joshua Nowak # the main title
 
-tagline: Psychologist, user researcher, product person, data storyteller, and piano nerd.  # it will display as the sub-title
+tagline: Psychologist, user researcher, product person, data cruncher, and storyteller.  # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
-  Joshua Nowak | Psychologist, user researcher, product person, data storyteller, piano nerd
+  Joshua Nowak | Psychologist, User Researcher, Product Person
 
 # Fill in the protocol & hostname for your site.
 # e.g. 'https://username.github.io', note that it does not end with a '/'.
