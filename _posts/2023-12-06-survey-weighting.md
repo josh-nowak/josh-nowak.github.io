@@ -170,7 +170,7 @@ Survey weighting can lead to more accurate results when working with a biased sa
 
 > “Even the most effective adjustment procedures were **unable to remove most of the bias**.”
 
-However, I don't think there's any disadvantage in working through a weighted analysis. In any case, it forces you to consider more ways in which your sample might be biased – and might inspire taking additional measures to address these biases.
+However, I don't think there's any disadvantage in working through a weighted analysis. In any case, it forces you to consider more ways in which your sample might be biased – and inspires additional measures to address these biases.
 
 ---
 
