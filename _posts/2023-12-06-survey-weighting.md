@@ -64,7 +64,7 @@ My suggested implementation for survey weighting in R makes use of the **[`anesr
 
 ### Step 1: Loading required packages
 
-Let’s start by loading the required packages. These are all we need for now.
+Let’s start by loading the required packages. These are all we need for now:
 
 ```r
 library(tidyverse)
@@ -129,7 +129,7 @@ raking_result <- anesrake(inputter = targets,
                           caseid = survey_data$id)
 ```
 
-Once `anesrake` is done, you can obtain the weights like this.
+Once `anesrake` is done, you can obtain the weights like this:
 
 ```r
 weights <- tibble(id = names(raking_result$weightvec),
