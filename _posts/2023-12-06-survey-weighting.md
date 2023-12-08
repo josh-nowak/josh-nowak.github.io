@@ -73,9 +73,7 @@ library(anesrake)
 
 ### Step 2: Checking for missing data
 
-The anesrake algorithm can’t work with missing data in the adjustment variables. You'll need to decide on a way to prevent or deal with missing values (e.g., imputation). Some options are outlined in this [article by freeCodeCamp](https://www.freecodecamp.org/news/how-to-handle-missing-data-in-a-dataset/).
-
-You can start by counting the missing values for each variable and go from there:
+The anesrake algorithm can’t work with missing data in the adjustment variables. You'll need to decide how to prevent or deal with missing values (e.g., imputation). This will highly depend on your context, so I'm not giving a specific recommendation here. You can start by counting the missing values for each variable and go from there.
 
 ```r
 map_df(survey_data, ~sum(is.na(.x)))
@@ -83,13 +81,13 @@ map_df(survey_data, ~sum(is.na(.x)))
 
 ### Step 3: Transform your survey data to work with anesrake
 
-The anesrake algorithm wants our dataset to be a [base data frame](https://rdrr.io/r/base/data.frame.html) and all adjustment variables to be [factors](https://r4ds.had.co.nz/factors.html). You can handle these transformations like this:
+The anesrake algorithm wants our dataset to be a [base data frame](https://rdrr.io/r/base/data.frame.html) and all adjustment variables to be [factors](https://r4ds.had.co.nz/factors.html). Assuming that our adjustment variables are age group and subscription status, you can handle these transformations like this:
 
 ```r
 survey_data <- as.data.frame(survey_data)
 
 survey_data <- survey_data %>% 
-  mutate(across(c(weighting_var_1, weighting_var2),
+  mutate(across(c(age_group, subscription_status),
                    as.factor))
 ```
 
