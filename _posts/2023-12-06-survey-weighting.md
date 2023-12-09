@@ -19,7 +19,7 @@ Conducting a weighted survey analysis is not a holy grail to ensure representati
 
 Weighted analysis is particularly useful for **mitigating non-response bias**—the problem that people who take your survey might differ from those who don’t in ways that distort the results. This popular cartoon illustrates the point quite well.
 
-![A cartoon illustrating non-response bias](/assets/img/sketchplanations-bias.png)
+![A cartoon illustrating non-response bias](/assets/img/sketchplanations-bias.png){: w="450"}
 _Cartoon by[ sketchplanations](https://sketchplanations.com/sampling-bias). The original cartoon is named "Sampling Bias" but the phenomenon at play seems more related to non-response bias: People that don't like surveys are less likely to respond to them._
 
 In reality, non-response bias is more subtle of course. A typical pattern in a business context can be that more engaged customers (i.e., those that use a product or service more often) are more likely to take part in a survey than less-engaged ones. If we want to make statements about our entire customer base, we need to reduce the impact of this over-represented group on the results. This is where weighted analysis comes into play.
