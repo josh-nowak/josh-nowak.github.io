@@ -14,4 +14,4 @@ My fascination for the human mind all things technology led me to this professio
 
 **My background is in psychology,** which I studied in Germany and Canada with a special focus on cognitive psychology, human-computer interaction, and organizational behavior. You can read my [master's thesis](https://link.springer.com/article/10.1007/s12144-022-03013-1) here.
 
-Happy to chat about all things research—reach out via [email](mailto:joshua@pragmaticresearcher.com) or [LinkedIn](https://www.linkedin.com/in/nowakjoshua/).
+Happy to chat about all things research—reach out via [email](mailto:hi@joshua-nowak.com) or [LinkedIn](https://www.linkedin.com/in/nowakjoshua/).
