@@ -4,7 +4,7 @@ date: 2023-12-06 19:00:00 +0100
 categories: [Tutorials]
 render_with_liquid: false
 image: 
-    path: /assets/img/weighting.png
+    path: /assets/img/weighting.webp
 ---
 
 When conducting surveys, the devil is in the detail. Bias is lurking throughout the process—from designing the questionnaire to collecting responses and analyzing results.
