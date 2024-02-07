@@ -1,5 +1,5 @@
 ---
-title: How can data science boost user research?
+title: The role of data science in elevating user research
 date: 2024-02-06 17:30:00 +0100
 categories: [Trends]
 render_with_liquid: false
