@@ -1,5 +1,5 @@
 ---
-title: A beginner's guide to weighted survey analysis in R
+title: Weighted survey analysis in R
 date: 2023-12-06 19:00:00 +0100
 categories: [Tutorials]
 render_with_liquid: false
