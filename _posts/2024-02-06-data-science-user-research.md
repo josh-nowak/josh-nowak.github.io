@@ -1,5 +1,5 @@
 ---
-title: The role of data science in elevating user research
+title: How can data science level up user research?
 date: 2024-02-06 17:30:00 +0100
 categories: [Trends]
 render_with_liquid: false
@@ -52,4 +52,4 @@ Knowing a thing or two about data science can also help you collaborate more eff
 
 # Outlook
 
-Data science skills have the potential to level up user research initiatives and might help in today’s tough job market as well. The use cases I mentioned above are the most obvious ones and there is certainly more to explore—perhaps in a future post. In the meantime, I’d love to hear how other people are combining user research and data science. [Send me an email](mailto:hi@joshua-nowak.com) if you feel like talking about this.
+Data science skills have the potential to level up user research initiatives and might help in today’s tough job market as well. The use cases I mentioned above are the most obvious ones and there is certainly more to explore—perhaps in a future post. In the meantime, I’d love to hear how you are combining user research and data science. Feel free to [reach out](mailto:hi@joshua-nowak.com).
