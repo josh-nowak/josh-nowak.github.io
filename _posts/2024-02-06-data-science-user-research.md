@@ -4,7 +4,7 @@ date: 2024-02-06 17:30:00 +0100
 categories: [Trends]
 render_with_liquid: false
 image: 
-    path: /assets/img/ur_ds.webp
+    path: /assets/img/user_research_data_science.webp
 ---
 
 
