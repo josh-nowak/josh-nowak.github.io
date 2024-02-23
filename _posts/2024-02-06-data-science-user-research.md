@@ -3,8 +3,6 @@ title: How can data science level up user research?
 date: 2024-02-06 17:30:00 +0100
 categories: [Trends]
 render_with_liquid: false
-image: 
-    path: /assets/img/user_research_data_science.webp
 ---
 
 
