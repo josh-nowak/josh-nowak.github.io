@@ -6,7 +6,7 @@ order: 3
 
 ### Hi there — I’m Joshua, a user researcher based in Berlin.
 
-My fascination for the human mind all things technology led me to this profession. I built products with the amazing teams at [Vanguard](https://www.de.vanguard/), [Grover](https://www.grover.com/de-de), and [AOK](https://www.aok.de/pk/plus/app-navida-gesundheitsassistentin/).
+My fascination for the human mind and all things technology led me to this profession. I built products with the amazing teams at [Vanguard](https://www.de.vanguard/), [Grover](https://www.grover.com/de-de), and [AOK](https://www.aok.de/pk/plus/app-navida-gesundheitsassistentin/).
 
 **Building user research practices and systems has been my professional focus so far**. As a solo researcher and in small teams, I established user research in places where it was still a pretty new thing to many. These experiences allowed me to quickly develop a full-stack research toolkit, support at all stages of the product life cycle, and collaborate with a diverse range of stakeholders, each with their own perspective on research.
 
