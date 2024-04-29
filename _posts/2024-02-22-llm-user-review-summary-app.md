@@ -7,10 +7,8 @@ image:
     path: /assets/img/reviews.webp
 ---
 
-> **tl;dr:** I built a simple web app with Streamlit that loads user reviews from the Apple App Store and summarizes them with GPT-3.5 or GPT-4. You can **[try the app here](https://user-reviews.streamlit.app)** or [read the documentation and code on Github](https://github.com/josh-nowak/user-reviews). I hope some will find the app useful or at least fun despite its limitations. Happy to hear about any [feedback or issues](mailto:hi@joshua-nowak.com).
-{: .prompt-info }
 
-Summarizing large amounts of qualitative (especially textual) user feedback is one of the common use cases for LLMs that are currently being explored among user researchers (the empirical data supporting this claim is my LinkedIn feed). In a 3-day project at [Data Science Retreat Berlin](https://www.linkedin.com/school/data-science-retreat/), I dived a bit deeper into this topic and built a web app that generates summaries of user feedback and product recommendations. This post is about some of the learnings I had developing this app.
+Summarizing large amounts of qualitative user feedback is one of the common use cases for LLMs that are currently being explored among user researchers (the empirical data supporting this claim being my LinkedIn feed). In a 3-day project at [Data Science Retreat Berlin](https://www.linkedin.com/school/data-science-retreat/), I dived a bit deeper into this topic and built a web app that generates summaries of user feedback and product recommendations. This post is about some of the learnings I had developing this app.
 
 ## App demo
 Before diving in, here is a quick demo of the app for context. [Try it yourself here](https://user-reviews.streamlit.app).
