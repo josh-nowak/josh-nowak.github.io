@@ -1,5 +1,5 @@
 ---
-title: "Privacy-friendly speech transcription with OpenAI's Whisper model"
+title: "Transcribing speech locally with OpenAI's Whisper model"
 date: 2024-04-29 16:00:00 +0100
 categories: [Tutorials]
 render_with_liquid: false
@@ -9,7 +9,7 @@ Cloud-based providers for speech transcription are easy to find, but sometimes y
 
 This tutorial outlines how to transcribe speech from audio to text using OpenAI's Whisper model on Macs, particularly those with an Apple Silicon processor (M1/M2/M3/...). None of the mentioned tools in this post are my own; I'm just compiling the steps to make it simpler for a broader audience. This tutorial only assumes basic familiarity with the command line and GitHub.
 
-### Clone the `whisper.cpp` repository
+## Clone the `whisper.cpp` repository
 The [whisper.cpp](https://github.com/ggerganov/whisper.cpp) repository offers a fast C/C++ implementation of OpenAI's Whisper model. The best part: it makes full use of Apple Silicon and even runs on the GPU.
 
 Using your terminal, run the following command to clone the repository to your hard drive:
@@ -19,7 +19,7 @@ git clone https://github.com/ggerganov/whisper.cpp.git
 cd whisper.cpp
 ```
 
-### Download the model
+## Download the model
 Make sure that you are in the `whisper.cpp` directory and run the following command to download a large version of the Whisper model:
 
 ```bash
@@ -34,7 +34,7 @@ From the `whisper.cpp` directory, run the following command once to compile the 
 make
 ```
 
-### Convert audio to WAV
+## Convert audio to WAV
 
 For this implementation of the Whisper model, audio files have to be manually converted to WAV format with a 16kHZ sampling rate and a single channel (mono). The free command line tool [FFmpeg](https://ffmpeg.org/) is the easiest way to do this. 
 
@@ -56,7 +56,7 @@ for f in *.mp3; do ffmpeg -i "$f" -ac 1 -ar 16000 "${f%.mp3}.wav"; done
 ```
 If your original files are in a different format, change `.mp3` above to match the actual file extension.
 
-### Transcribe away
+## Transcribe away
 
 Now that everything is set up, you can transcribe speech from audio files. Run the following command to transcribe a single audio file called `audio.wav` and save it to a file named `transcript.txt`:
 
@@ -68,7 +68,7 @@ Another essential flag is `-l`, which specifies the language. The default is Eng
 
 See more options by running `./main --help`.
 
-### Performance
+## Performance
 On a 2020 MacBook Pro with an M1 chip, this converts audio to text at about half the speed of real-time. For example, a 3-minute audio file takes about 1.5 minutes to transcribe. With newer chips, this should be even faster.
 
 You can also try [smaller models](https://github.com/ggerganov/whisper.cpp/blob/master/models/README.md) if you care about speed over accuracy.
