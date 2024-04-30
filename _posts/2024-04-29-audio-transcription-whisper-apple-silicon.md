@@ -64,6 +64,8 @@ Now that everything is set up, you can transcribe speech from audio files. Run t
 ./main -m models/ggml-large-v3-q5_0.bin -f ~/Downloads/test/sprana.wav -otxt -of transcript
 ```
 
+Note that the transcript file name is given without a file extension. The `-otxt` flag specifies the output format, and the `-of` flag specifies the output file name.
+
 Another essential flag is `-l`, which specifies the language. The default is English, which can be changed by specifying a language code (e.g., `-l de` for German).
 
 See more options by running `./main --help`.
@@ -72,3 +74,23 @@ See more options by running `./main --help`.
 On a 2020 MacBook Pro with an M1 chip, this converts audio to text at about half the speed of real-time. For example, a 3-minute audio file takes about 1.5 minutes to transcribe. With newer chips, this should be even faster.
 
 You can also try [smaller models](https://github.com/ggerganov/whisper.cpp/blob/master/models/README.md) if you care about speed over accuracy.
+
+## Quick reference
+In short, this is all it takes to transcribe speech locally:
+
+```bash
+# Clone the whisper.cpp repo and navigate to it
+git clone https://github.com/ggerganov/whisper.cpp.git
+cd whisper.cpp
+
+# Download and compile a Whisper model
+# (e.g., the 5-bit quantized large-v3 model)
+bash ./models/download-ggml-model.sh large-v3-q5_0
+make
+
+# Convert an audio file, assuming it is in the home directory
+ffmpeg -i ~/audio.mp3 -ac 1 -ar 16000 ~/audio.wav
+
+# Transcribe the audio file and save the result to transcript.txt
+./main -m models/ggml-large-v3-q5_0.bin -f ~/audio.wav -otxt -of transcript
+```
