@@ -16,10 +16,10 @@ timezone: Europe/Berlin
 
 title: Joshua Nowak # the main title
 
-tagline: User Research, Psychology, and Data Science # it will display as the sub-title
+tagline: User research, psychology, and other discoveries # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
-  Joshua Nowak | User Research, Psychology, and Data Science
+  Joshua Nowak | User research, psychology, and other discoveries
 
 # Fill in the protocol & hostname for your site.
 # e.g. 'https://username.github.io', note that it does not end with a '/'.
@@ -102,7 +102,7 @@ assets:
     env: # [development|production]
 
 pwa:
-  enabled: true # the option for PWA feature
+  enabled: false # the option for PWA feature
 
 paginate: 10
 
