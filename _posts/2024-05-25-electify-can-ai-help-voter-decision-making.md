@@ -1,6 +1,6 @@
 ---
 title: "Electify: Can AI help voter decision-making?"
-date: 2024-05-23 20:00:00 +0100
+date: 2024-05-25 10:00:00 +0100
 categories: [Projects]
 render_with_liquid: false
 image: 
