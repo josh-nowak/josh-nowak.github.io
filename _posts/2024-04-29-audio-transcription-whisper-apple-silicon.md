@@ -66,9 +66,16 @@ Now that everything is set up, you can transcribe speech from audio files. Run t
 
 Note that the transcript file name is given without a file extension. The `-otxt` flag specifies the output format, and the `-of` flag specifies the output file name.
 
-Another essential flag is `-l`, which specifies the language. The default is English, which can be changed by specifying a language code (e.g., `-l de` for German).
+Another essential flag is `-l`, which specifies the language. The default is English, which can be changed by specifying a language code (e.g., `-l de` for German). See more options by running `./main --help`.
 
-See more options by running `./main --help`.
+If you want to include the timestamps in your export, you can build the text file in a different way:
+
+```bash
+./main -m models/ggml-large-v3-q5_0.bin -f ~/audio.wav -np > transcript.txt
+```
+
+This saves the default transcription output to a text file, but removes all the system output thanks to the `-np` flag ("no prints").
+
 
 ## Performance
 On a 2020 MacBook Pro with an M1 chip, this converts audio to text at about half the speed of real-time. For example, a 3-minute audio file takes about 1.5 minutes to transcribe. With newer chips, this should be even faster.
