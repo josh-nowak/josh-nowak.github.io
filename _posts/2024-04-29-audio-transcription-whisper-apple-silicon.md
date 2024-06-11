@@ -61,7 +61,7 @@ If your original files are in a different format, change `.mp3` above to match t
 Now that everything is set up, you can transcribe speech from audio files. Run the following command to transcribe a single audio file called `audio.wav` and save it to a file named `transcript.txt`:
 
 ```bash
-./main -m models/ggml-large-v3-q5_0.bin -f ~/Downloads/test/sprana.wav -otxt -of transcript
+./main -m models/ggml-large-v3-q5_0.bin -f ~/audio.wav -otxt -of transcript
 ```
 
 Note that the transcript file name is given without a file extension. The `-otxt` flag specifies the output format, and the `-of` flag specifies the output file name.
