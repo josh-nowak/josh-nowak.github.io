@@ -41,7 +41,7 @@
     </button>
 
     <div id="topbar-title">
-      <h4 style="margin-bottom: 0px !important">
+      <h3 style="margin-bottom: 0px !important">
         {% if page.layout == 'home' %} {{- site.data.locales[include.lang].title
         | default: site.title -}} {% elsif page.collection == 'tabs' or
         page.layout == 'page' %} {%- capture tab_key -%}{{ page.url | split: '/'
@@ -49,7 +49,7 @@
         default: page.title -}} {% else %} {{-
         site.data.locales[include.lang].layout[page.layout] | default:
         page.layout | capitalize -}} {% endif %}
-      </h4>
+      </h3>
     </div>
 
     <button type="button" id="search-trigger" class="btn btn-link">
