@@ -7,10 +7,12 @@ image:
     path: /assets/img/electify.webp
 ---
 
-Electify is an AI-based web app I built with [Christian Liedl](https://www.linkedin.com/in/christian-liedl-2aaa03133/) and [Anna Neifer](https://www.linkedin.com/in/anna-neifer/) at [Data Science Retreat](https://datascienceretreat.com/). The main idea is to help voters in Germany make a more informed decision for the 2024 European elections by summarizing parties' positions on any political topic a voter cares about.
+Electify is an AI-based web app I built with [Christian Liedl](https://www.linkedin.com/in/christian-liedl-2aaa03133/) and [Anna Neifer](https://www.linkedin.com/in/anna-neifer/) at [Data Science Retreat](https://datascienceretreat.com/). The main idea was to help voters in Germany make a more informed decision for the 2024 European elections by summarizing parties' positions on any political topic a voter cares about.
 
-Long story short: We built a RAG (retrieval-augmented generation) system based on party manifestos and parliament debates, tweaked and evaluated it over a few weeks, built a web app around it with Streamlit, and deployed it at [electify.eu](https://electify.eu/). You're more than welcome to try it, spread the word, and [share your feedback](mailto:electify.eu@gmail.com).
+Long story short: We built a RAG (retrieval-augmented generation) system based on party manifestos and parliament debates, tweaked and evaluated it over a few weeks, built a web app around it with Streamlit, and deployed it at [electify.eu](https://electify.eu/). You're more than welcome to try it, spread the word, and [share your feedback](mailto:electify.eu@gmail.com). The code is available in our [GitHub repository](https://github.com/electify-eu/europarl-ai).
 
+> **June 2024 update:** The EU elections are over, and the app is no longer live. Electify has seen more than 6,000 users and was covered by a few media outlets. It was an exciting time! Read more at [electify.eu](https://electify.eu/).
+{: .prompt-info }
 
 # How this project emerged
 During our work at Data Science Retreat, Anna, Chris, and I noticed early on that we share an interest in politics and natural language processing. Among other things, we were all curious to explore how the latest large language models (LLMs) can help people make sense of political documents. With the European elections coming up, we quickly decided to build an LLM tool for voters.
