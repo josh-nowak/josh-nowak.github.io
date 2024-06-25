@@ -19,11 +19,11 @@ title: Joshua Nowak # the main title
 tagline: User research, psychology, and other discoveries # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
-  Joshua Nowak | User research, psychology, and other discoveries
+  User research, psychology, and other discoveries
 
 # Fill in the protocol & hostname for your site.
 # e.g. 'https://username.github.io', note that it does not end with a '/'.
-url: "https://josh-nowak.github.io"
+url: "https://joshua-nowak.com"
 
 github:
   username: josh-nowak # change to your github username
