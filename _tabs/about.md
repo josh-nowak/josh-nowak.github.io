@@ -10,4 +10,4 @@ Currently, I conduct user research for justice services at Germany's [DigitalSer
 
 Previously, I helped build products at [Vanguard](https://www.de.vanguard/), [Grover](https://www.grover.com/), and [AOK](https://www.aok.de/pk/plus/).
 
-Reach out at [hi@joshua-nowak.com](mailto:hi@joshua-nowak.com)
+Reach out at [hi@jonowak.eu](mailto:hi@jonowak.eu)
