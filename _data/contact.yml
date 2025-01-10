@@ -8,8 +8,12 @@
   noblank: true # open link in current tab
 
 - type: linkedin
-  icon: 'fab fa-linkedin'   # icons powered by <https://fontawesome.com/>
-  url:  'https://www.linkedin.com/in/nowakjoshua/'  # Fill with your Linkedin homepage
+  icon: "fab fa-linkedin" # icons powered by <https://fontawesome.com/>
+  url: "https://www.linkedin.com/in/nowakjoshua/" # Fill with your Linkedin homepage
+
+- type: bluesky
+  icon: "fa-brands fa-bluesky"
+  url: "https://bsky.app/profile/jonowak.eu" # Fill with your Bluesky profile link
 
 # Uncomment and complete the url below to enable more contact options
 #
