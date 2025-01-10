@@ -37,15 +37,14 @@ social:
     # The first element serves as the copyright owner's link
     - https://www.linkedin.com/in/nowakjoshua
     - https://github.com/josh-nowak
-    
 
 google_site_verification: # fill in to your verification string
 
 # ↑ --------------------------
 # The end of `jekyll-seo-tag` settings
 
-google_analytics:
-  id: G-ZL9EYJT48D
+# google_analytics:
+#   id:
 
 # Prefer color scheme setting.
 #
@@ -107,7 +106,7 @@ pwa:
 paginate: 10
 
 # The base URL of your site
-baseurl: 
+baseurl:
 
 # ------------ The following options are not recommended to be modified ------------------
 
