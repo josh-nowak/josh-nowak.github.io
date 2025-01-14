@@ -151,7 +151,7 @@
   include metadata-hook.html %}
 
   <!-- Posthog -->
-  {% if jekyll.environment == production' %}
+  {% if jekyll.environment == 'production' %}
   <script>
     !(function (t, e) {
       var o, n, p, r;
@@ -204,7 +204,7 @@
     })(document, window.posthog || []);
     posthog.init("{{ jekyll.env.POSTHOG_API_KEY }}", {
       api_host: "https://eu.i.posthog.com",
-      person_profiles: "identified_only", // or 'always' to create profiles for anonymous users as well
+      person_profiles: "always", // or 'always' to create profiles for anonymous users as well
     });
   </script>
   {% endif %}
