@@ -29,7 +29,7 @@ const blog = (await getCollection("notes"))
         <div class="animate flex flex-wrap items-center gap-2">
           <a
             href={`mailto:${SITE.EMAIL}`}
-            class="inline-flex items-center gap-2 px-4 py-2 h-[42px] rounded-lg bg-[var(--accent-color)] dark:bg-white text-white dark:text-black hover:text-white dark:hover:text-black hover:bg-blue-700 dark:hover:bg-neutral-200 transition-colors no-underline"
+            class="inline-flex items-center gap-2 px-4 py-2 h-[42px] rounded-lg bg-[var(--accent-color)] dark:bg-white text-white dark:text-black hover:text-white dark:hover:text-black hover:bg-[#3a5275] dark:hover:bg-neutral-100 transition-colors no-underline"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -113,9 +113,7 @@ const blog = (await getCollection("notes"))
 
       <section class="animate space-y-8">
         <div class="flex flex-wrap gap-y-2 items-center justify-between">
-          <h2 class="font-semibold text-lg text-black/90 dark:text-white/90">
-            Recent notes & highlights
-          </h2>
+          <h2 class="font-semibold text-lg">Recent notes & highlights</h2>
         </div>
         <ul class="relative border-l border-black/15 dark:border-white/20 ml-2">
           {
