@@ -14,11 +14,11 @@ const blog = (await getCollection("notes"))
 <PageLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
   <Container>
     <section>
-      <article class="mb-12">
-        <h1 class="animate tech-headline mb-4 text-2xl">
+      <article class="mb-16">
+        <h1 class="animate tech-headline mb-6 text-2xl">
           Bridging psychology and product
         </h1>
-        <p class="animate mb-6">
+        <p class="animate mb-8">
           I'm a user-centered product generalist with a background in
           psychology, building digital public services with and for the justice
           system at the German government's <a
@@ -111,9 +111,11 @@ const blog = (await getCollection("notes"))
         </div>
       </article>
 
-      <section class="animate space-y-6">
+      <section class="animate space-y-8">
         <div class="flex flex-wrap gap-y-2 items-center justify-between">
-          <h2 class="font-semibold text-lg text-black/90 dark:text-white/90">Recent notes & highlights</h2>
+          <h2 class="font-semibold text-lg text-black/90 dark:text-white/90">
+            Recent notes & highlights
+          </h2>
         </div>
         <ul class="relative border-l border-black/15 dark:border-white/20 ml-2">
           {
