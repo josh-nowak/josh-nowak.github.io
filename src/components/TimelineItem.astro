@@ -1,0 +1,61 @@
+---
+import type { CollectionEntry } from "astro:content";
+import FormattedDate from "@components/FormattedDate.astro";
+
+type Props = {
+  entry: CollectionEntry<"notes"> | CollectionEntry<"projects">;
+};
+
+const { entry } = Astro.props;
+const externalUrl =
+  "externalUrl" in entry.data ? entry.data.externalUrl : undefined;
+const platform = "platform" in entry.data ? entry.data.platform : undefined;
+const language = "language" in entry.data ? entry.data.language : undefined;
+const languageLabel = language === "de" ? "In German" : null;
+const isExternal = !!externalUrl;
+const basePath = entry.collection === "notes" ? "notes" : entry.collection;
+const href = isExternal ? externalUrl : `/${basePath}/${entry.slug}`;
+---
+
+<a
+  href={href}
+  target={isExternal ? "_blank" : undefined}
+  rel={isExternal ? "noopener noreferrer" : undefined}
+  class="relative group block py-3 transition-colors duration-300 ease-in-out"
+>
+  <div
+    class="absolute -left-[1.35rem] top-4 w-2.5 h-2.5 rounded-full bg-stone-400 dark:bg-stone-500 group-hover:bg-black dark:group-hover:bg-white transition-colors duration-300"
+  >
+  </div>
+  <div class="text-sm text-black/60 dark:text-white/60 mb-1">
+    <FormattedDate date={entry.data.date} />
+    {platform && <span> · {platform}</span>}
+    {languageLabel && <span> · {languageLabel}</span>}
+  </div>
+  <div class="font-semibold text-black/90 dark:text-white/90 group-hover:text-black dark:group-hover:text-white group-hover:underline underline-offset-2 mb-1">
+    {entry.data.title}{
+      isExternal && (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="inline ml-1.5 text-black/50 dark:text-white/50"
+          style="vertical-align: -0.1em;"
+        >
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+          <polyline points="15 3 21 3 21 9" />
+          <line x1="10" y1="14" x2="21" y2="3" />
+        </svg>
+      )
+    }
+  </div>
+  <div class="text-sm text-black/60 dark:text-white/60">
+    {entry.data.description}
+  </div>
+</a>
