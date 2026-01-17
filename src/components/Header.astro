@@ -1,6 +1,11 @@
 ---
 import Container from "@components/Container.astro";
 import Link from "@components/Link.astro";
+
+import homeIcon from "pixelarticons/svg/home.svg?raw";
+import notesIcon from "pixelarticons/svg/notes.svg?raw";
+import sunIcon from "pixelarticons/svg/sun-alt.svg?raw";
+import moonIcon from "pixelarticons/svg/moon.svg?raw";
 ---
 
 <header>
@@ -9,69 +14,51 @@ import Link from "@components/Link.astro";
       <Link
         href="/"
         underline={false}
-        class="text-black dark:text-white text-lg flex items-center gap-2"
+        class="text-black dark:text-white text-xl flex items-center md:gap-2"
         style="font-family: 'Silkscreen', monospace;"
       >
         Joshua Nowak
       </Link>
-      <nav class="flex items-center gap-4">
+      <nav class="flex items-center">
         <Link
           href="/"
           underline={false}
-          class="text-sm text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors"
+          aria-label="Home"
+          class="group flex items-center md:gap-2 p-2 rounded-lg text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 transition-all [&>svg]:w-6 [&>svg]:h-6"
         >
-          Home
+          <Fragment set:html={homeIcon} />
+          <span
+            class="text-sm max-w-0 overflow-hidden md:group-hover:max-w-20 transition-all duration-300 whitespace-nowrap"
+            style="font-family: 'Silkscreen', monospace;">Home</span
+          >
         </Link>
         <Link
           href="/notes"
           underline={false}
-          class="text-sm text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors"
+          aria-label="Notes"
+          class="group flex items-center md:gap-2 p-2 rounded-lg text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 transition-all [&>svg]:w-6 [&>svg]:h-6"
         >
-          Notes
+          <Fragment set:html={notesIcon} />
+          <span
+            class="text-sm max-w-0 overflow-hidden md:group-hover:max-w-20 transition-all duration-300 whitespace-nowrap"
+            style="font-family: 'Silkscreen', monospace;">Notes</span
+          >
         </Link>
         <button
           id="theme-toggle"
           aria-label="Toggle theme"
-          class="p-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
+          class="group flex items-center md:gap-2 p-2 rounded-lg text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 transition-all [&_svg]:w-6 [&_svg]:h-6"
         >
-          <svg
-            id="sun-icon"
-            class="hidden dark:block"
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+          <span id="sun-icon" class="hidden dark:block">
+            <Fragment set:html={sunIcon} />
+          </span>
+          <span id="moon-icon" class="block dark:hidden">
+            <Fragment set:html={moonIcon} />
+          </span>
+          <span
+            class="text-sm max-w-0 overflow-hidden md:group-hover:max-w-20 transition-all duration-300 whitespace-nowrap"
+            style="font-family: 'Silkscreen', monospace;">Theme</span
           >
-            <circle cx="12" cy="12" r="5"></circle>
-            <line x1="12" y1="1" x2="12" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="23"></line>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-            <line x1="1" y1="12" x2="3" y2="12"></line>
-            <line x1="21" y1="12" x2="23" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-          </svg>
-          <svg
-            id="moon-icon"
-            class="block dark:hidden"
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-          </svg>
         </button>
       </nav>
     </div>
