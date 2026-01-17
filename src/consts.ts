@@ -3,12 +3,12 @@ import type { Site, Metadata, Socials } from "@types";
 export const SITE: Site = {
   NAME: "Joshua Nowak",
   EMAIL: "hello@joshuanowak.eu",
-  NUM_POSTS_ON_HOMEPAGE: 3,
+  NUM_POSTS_ON_HOMEPAGE: 5,
 };
 
 export const HOME: Metadata = {
   TITLE: "Home",
-  DESCRIPTION: "Astro Nano is a minimal and lightweight blog and portfolio.",
+  DESCRIPTION: "Joshua Nowak - Bridging psychology and product",
 };
 
 export const BLOG: Metadata = {
